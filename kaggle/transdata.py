@@ -3,10 +3,16 @@ import pymongo
 import re
 
 yh_re = re.compile('""')
-conn = pymongo.Connection("localhost")
-mydb = conn["train_all"]
+conn, mydb = get_conn()
 
 buffer_size = 30*1024*1024
+
+
+def get_conn():
+    _conn = pymongo.Connection("localhost")
+    _mydb = conn["train_sample"]
+    return _conn, _mydb
+    
 
 def read_file(filename):
     tmp_file = open(filename, "r")
