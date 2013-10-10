@@ -4,7 +4,7 @@ import re
 
 yh_re = re.compile('""')
 conn = pymongo.Connection("localhost")
-mydb = conn["train_sample"]
+mydb = conn["train_all"]
 
 buffer_size = 30*1024*1024
 
@@ -36,5 +36,5 @@ def export_to_mongo(items):
     mydb.train_data.insert({"_id": items[0], "title":items[1], "content":items[2], "tags":items[3]})
 
 if __name__ == "__main__":
-    read_file("Train_sample.csv")
+    read_file("/home/lidashu/code/data/Train/Train.csv")
 
