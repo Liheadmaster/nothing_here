@@ -8,4 +8,15 @@ corr <- function(directory, threshold = 0) {
   ## nitrate and sulfate; the default is 0
   
   ## Return a numeric vector of correlations
+  rts <- c()
+  mode(rts) <- "numeric"
+  cases <- complete(directory)
+  filt_id <- cases$id[cases$nobs > threshold]
+  for (id in filt_id){
+    all_data <- getmonitor(id, directory)
+    filt_sul <- all_data$sulfate[!is.na(all_data$sulfate) & !is.na(all_data$nitrate)]
+    filt_nit <- all_data$nitrate[!is.na(all_data$sulfate) & !is.na(all_data$nitrate)]
+    rts <- c(rts, c(cor(filt_sul, filt_nit)))
+  }
+  rts
 }
