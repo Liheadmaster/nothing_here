@@ -1,8 +1,10 @@
 package edu.umn.cs.recsys.ii;
 
 import com.google.common.collect.ImmutableMap;
+
 import it.unimi.dsi.fastutil.longs.LongSet;
 import it.unimi.dsi.fastutil.longs.LongSortedSet;
+
 import org.grouplens.lenskit.collections.LongUtils;
 import org.grouplens.lenskit.core.Transient;
 import org.grouplens.lenskit.cursors.Cursor;
@@ -18,11 +20,14 @@ import org.grouplens.lenskit.vectors.ImmutableSparseVector;
 import org.grouplens.lenskit.vectors.MutableSparseVector;
 import org.grouplens.lenskit.vectors.SparseVector;
 import org.grouplens.lenskit.vectors.VectorEntry;
+import org.grouplens.lenskit.vectors.similarity.CosineVectorSimilarity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -52,11 +57,26 @@ public class SimpleItemItemModelBuilder implements Provider<SimpleItemItemModel>
         // Get all items - you might find this useful
         LongSortedSet items = LongUtils.packedSet(itemVectors.keySet());
         // Map items to vectors of item similarities
-        Map<Long,MutableSparseVector> itemSimilarities = new HashMap<Long, MutableSparseVector>();
+        Map<Long, List<ScoredId>> itemSimilarities = new HashMap<Long, List<ScoredId>>();
 
         // TODO Compute the similarities between each pair of items
         // It will need to be in a map of longs to lists of Scored IDs to store in the model
-        return new SimpleItemItemModel(Collections.EMPTY_MAP);
+        CosineVectorSimilarity cs = new CosineVectorSimilarity();
+        for (Long itemId : items){
+        	itemSimilarities.put(itemId, new ArrayList());
+        	for (Long compareItemId : items){
+        		if ( itemId == compareItemId ){
+        			continue;
+        		}
+        		double _sim = cs.similarity(itemVectors.get(itemId), itemVectors.get(compareItemId));
+        		if (_sim > 0.0001){
+        			itemSimilarities.get(itemId).add( ScoredIds.create(compareItemId, _sim));
+        		}
+        		
+  
+        	}
+        }
+        return new SimpleItemItemModel(itemSimilarities);
     }
 
     /**
@@ -78,9 +98,14 @@ public class SimpleItemItemModelBuilder implements Provider<SimpleItemItemModel>
         Cursor<UserHistory<Event>> stream = userEventDao.streamEventsByUser();
         try {
             for (UserHistory<Event> evt: stream) {
+            	
                 MutableSparseVector vector = RatingVectorUserHistorySummarizer.makeRatingVector(evt).mutableCopy();
                 // vector is now the user's rating vector
                 // TODO Normalize this vector and store the ratings in the item data
+                double _vm = vector.mean();
+                for (VectorEntry _v : vector){
+                	itemData.get(_v.getKey()).put(evt.getUserId(), _v.getValue()-_vm);
+                }
             }
         } finally {
             stream.close();
