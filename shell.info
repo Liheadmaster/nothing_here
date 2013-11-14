@@ -1,0 +1,770 @@
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ 
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ 
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ 
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ 
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ ls -l
+总用量 4864
+-rw-rw-r-- 1 lidashu lidashu      38 10月  1 22:03 README.md
+-rw-rw-r-- 1 lidashu lidashu 4964847 10月  1 22:03 Train_sample.csv
+-rw-rw-r-- 1 lidashu lidashu     958 10月  2 20:24 #transdata.py#
+-rw-rw-r-- 1 lidashu lidashu     959 10月  1 22:04 transdata.py
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ python transdata.py 
+Traceback (most recent call last):
+  File "transdata.py", line 2, in <module>
+    import pymongo
+ImportError: No module named pymongo
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ pip install pymongo
+程序“pip”尚未安装。  您可以使用以下命令安装：
+sudo apt-get install python-pip
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ sudo apt-get install python-pip
+[sudo] password for lidashu: 
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成
+下列软件包是自动安装的并且现在不需要了：
+  thunderbird-globalmenu
+使用'apt-get autoremove'来卸载它们
+将会安装下列额外的软件包：
+  python-setuptools
+下列【新】软件包将被安装：
+  python-pip python-setuptools
+升级了 0 个软件包，新安装了 2 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。
+需要下载 536 kB 的软件包。
+解压缩后会消耗掉 1,467 kB 的额外空间。
+您希望继续执行吗？[Y/n]Y
+获取：1 http://mirrors.163.com/ubuntu/ precise/main python-setuptools all 0.6.24-1ubuntu1 [441 kB]
+获取：2 http://mirrors.163.com/ubuntu/ precise/universe python-pip all 1.0-1build1 [95.1 kB]
+下载 536 kB，耗时 2秒 (186 kB/s)
+debconf: 无法初始化前端界面：Dialog
+debconf: (对话框界面将不能在哑终端上运行，例如 Emacs shell 缓存，或者没有控制终端。)
+debconf: 返回前端界面：Readline
+Selecting previously unselected package python-setuptools.
+(正在读取数据库 ... 系统当前共安装有 188525 个文件和目录。)
+正在解压缩 python-setuptools (从 .../python-setuptools_0.6.24-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-pip.
+正在解压缩 python-pip (从 .../python-pip_1.0-1build1_all.deb) ...
+正在处理用于 man-db 的触发器...
+debconf: 无法初始化前端界面：Dialog
+debconf: (对话框界面将不能在哑终端上运行，例如 Emacs shell 缓存，或者没有控制终端。)
+debconf: 返回前端界面：Readline
+正在设置 python-setuptools (0.6.24-1ubuntu1) ...
+正在设置 python-pip (1.0-1build1) ...
+lidashu@lidashu-virtual-machine:~/code/nothing_here$pip install pymongo
+Downloading/unpacking pymongo
+  Downloading pymongo-2.6.2.tar.gz (322Kb): 322Kb downloaded
+  Running setup.py egg_info for package pymongo
+    
+Installing collected packages: pymongo
+  Running setup.py install for pymongo
+    building 'bson._cbson' extension
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Ibson -I/usr/include/python2.7 -c bson/_cbsonmodule.c -o build/temp.linux-x86_64-2.7/bson/_cbsonmodule.o
+    bson/_cbsonmodule.c:23:20: 致命错误： Python.h：没有那个文件或目录
+    编译中断。
+    /home/lidashu/code/nothing_here/build/pymongo/setup.py:199: UserWarning:
+    ********************************************************************
+    WARNING: The bson._cbson extension module could not
+    be compiled. No C extensions are essential for PyMongo to run,
+    although they do result in significant speed improvements.
+    The output above this warning shows how the compilation failed.
+    
+    Please see the installation docs for solutions to build issues:
+    
+    http://api.mongodb.org/python/current/installation.html
+    
+    Here are some hints for popular operating systems:
+    
+    If you are seeing this message on Linux you probably need to
+    install GCC and/or the Python development package for your
+    version of Python.
+    
+    Debian and Ubuntu users should issue the following command:
+    
+        $ sudo apt-get install build-essential python-dev
+    
+    RedHat, CentOS, and Fedora users should issue the following command:
+    
+        $ sudo yum install gcc python-devel
+    
+    If you are seeing this message on Microsoft Windows please install
+    PyMongo using the MS Windows installer for your version of Python,
+    available on pypi here:
+    
+    http://pypi.python.org/pypi/pymongo/#downloads
+    
+    If you are seeing this message on OSX please read the documentation
+    here:
+    
+    http://api.mongodb.org/python/current/installation.html#osx
+    ********************************************************************
+    
+      "The output above "
+    command 'gcc' failed with exit status 1
+    building 'pymongo._cmessage' extension
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Ibson -I/usr/include/python2.7 -c pymongo/_cmessagemodule.c -o build/temp.linux-x86_64-2.7/pymongo/_cmessagemodule.o
+    pymongo/_cmessagemodule.c:23:20: 致命错误： Python.h：没有那个文件或目录
+    编译中断。
+    /home/lidashu/code/nothing_here/build/pymongo/setup.py:199: UserWarning:
+    ********************************************************************
+    WARNING: The pymongo._cmessage extension module could not
+    be compiled. No C extensions are essential for PyMongo to run,
+    although they do result in significant speed improvements.
+    The output above this warning shows how the compilation failed.
+    
+    Please see the installation docs for solutions to build issues:
+    
+    http://api.mongodb.org/python/current/installation.html
+    
+    Here are some hints for popular operating systems:
+    
+    If you are seeing this message on Linux you probably need to
+    install GCC and/or the Python development package for your
+    version of Python.
+    
+    Debian and Ubuntu users should issue the following command:
+    
+        $ sudo apt-get install build-essential python-dev
+    
+    RedHat, CentOS, and Fedora users should issue the following command:
+    
+        $ sudo yum install gcc python-devel
+    
+    If you are seeing this message on Microsoft Windows please install
+    PyMongo using the MS Windows installer for your version of Python,
+    available on pypi here:
+    
+    http://pypi.python.org/pypi/pymongo/#downloads
+    
+    If you are seeing this message on OSX please read the documentation
+    here:
+    
+    http://api.mongodb.org/python/current/installation.html#osx
+    ********************************************************************
+    
+      "The output above "
+    command 'gcc' failed with exit status 1
+    error: could not create '/usr/local/lib/python2.7/dist-packages/bson': Permission denied
+    Complete output from command /usr/bin/python -c "import setuptools;__file__='/home/lidashu/code/nothing_here/build/pymongo/setup.py';exec(compile(open(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --single-version-externally-managed --record /tmp/pip-ulPGHE-record/install-record.txt:
+    running install
+
+running build
+
+running build_py
+
+creating build
+
+creating build/lib.linux-x86_64-2.7
+
+creating build/lib.linux-x86_64-2.7/bson
+
+copying bson/son.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/tz_util.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/max_key.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/py3compat.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/objectid.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/binary.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/__init__.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/dbref.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/min_key.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/errors.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/timestamp.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/code.py -> build/lib.linux-x86_64-2.7/bson
+
+copying bson/json_util.py -> build/lib.linux-x86_64-2.7/bson
+
+creating build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/mongo_client.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/database.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/mongo_replica_set_client.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/connection.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/__init__.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/replica_set_connection.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/common.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/read_preferences.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/message.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/master_slave_connection.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/pool.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/uri_parser.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/ssl_match_hostname.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/errors.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/collection.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/cursor_manager.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/thread_util.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/helpers.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/son_manipulator.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/cursor.py -> build/lib.linux-x86_64-2.7/pymongo
+
+copying pymongo/auth.py -> build/lib.linux-x86_64-2.7/pymongo
+
+creating build/lib.linux-x86_64-2.7/gridfs
+
+copying gridfs/__init__.py -> build/lib.linux-x86_64-2.7/gridfs
+
+copying gridfs/grid_file.py -> build/lib.linux-x86_64-2.7/gridfs
+
+copying gridfs/errors.py -> build/lib.linux-x86_64-2.7/gridfs
+
+running build_ext
+
+building 'bson._cbson' extension
+
+creating build/temp.linux-x86_64-2.7
+
+creating build/temp.linux-x86_64-2.7/bson
+
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Ibson -I/usr/include/python2.7 -c bson/_cbsonmodule.c -o build/temp.linux-x86_64-2.7/bson/_cbsonmodule.o
+
+bson/_cbsonmodule.c:23:20: 致命错误： Python.h：没有那个文件或目录
+
+编译中断。
+
+/home/lidashu/code/nothing_here/build/pymongo/setup.py:199: UserWarning:
+
+********************************************************************
+
+WARNING: The bson._cbson extension module could not
+
+be compiled. No C extensions are essential for PyMongo to run,
+
+although they do result in significant speed improvements.
+
+The output above this warning shows how the compilation failed.
+
+
+
+Please see the installation docs for solutions to build issues:
+
+
+
+http://api.mongodb.org/python/current/installation.html
+
+
+
+Here are some hints for popular operating systems:
+
+
+
+If you are seeing this message on Linux you probably need to
+
+install GCC and/or the Python development package for your
+
+version of Python.
+
+
+
+Debian and Ubuntu users should issue the following command:
+
+
+
+    $ sudo apt-get install build-essential python-dev
+
+
+
+RedHat, CentOS, and Fedora users should issue the following command:
+
+
+
+    $ sudo yum install gcc python-devel
+
+
+
+If you are seeing this message on Microsoft Windows please install
+
+PyMongo using the MS Windows installer for your version of Python,
+
+available on pypi here:
+
+
+
+http://pypi.python.org/pypi/pymongo/#downloads
+
+
+
+If you are seeing this message on OSX please read the documentation
+
+here:
+
+
+
+http://api.mongodb.org/python/current/installation.html#osx
+
+********************************************************************
+
+
+
+  "The output above "
+
+command 'gcc' failed with exit status 1
+
+building 'pymongo._cmessage' extension
+
+creating build/temp.linux-x86_64-2.7/pymongo
+
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Ibson -I/usr/include/python2.7 -c pymongo/_cmessagemodule.c -o build/temp.linux-x86_64-2.7/pymongo/_cmessagemodule.o
+
+pymongo/_cmessagemodule.c:23:20: 致命错误： Python.h：没有那个文件或目录
+
+编译中断。
+
+/home/lidashu/code/nothing_here/build/pymongo/setup.py:199: UserWarning:
+
+********************************************************************
+
+WARNING: The pymongo._cmessage extension module could not
+
+be compiled. No C extensions are essential for PyMongo to run,
+
+although they do result in significant speed improvements.
+
+The output above this warning shows how the compilation failed.
+
+
+
+Please see the installation docs for solutions to build issues:
+
+
+
+http://api.mongodb.org/python/current/installation.html
+
+
+
+Here are some hints for popular operating systems:
+
+
+
+If you are seeing this message on Linux you probably need to
+
+install GCC and/or the Python development package for your
+
+version of Python.
+
+
+
+Debian and Ubuntu users should issue the following command:
+
+
+
+    $ sudo apt-get install build-essential python-dev
+
+
+
+RedHat, CentOS, and Fedora users should issue the following command:
+
+
+
+    $ sudo yum install gcc python-devel
+
+
+
+If you are seeing this message on Microsoft Windows please install
+
+PyMongo using the MS Windows installer for your version of Python,
+
+available on pypi here:
+
+
+
+http://pypi.python.org/pypi/pymongo/#downloads
+
+
+
+If you are seeing this message on OSX please read the documentation
+
+here:
+
+
+
+http://api.mongodb.org/python/current/installation.html#osx
+
+********************************************************************
+
+
+
+  "The output above "
+
+command 'gcc' failed with exit status 1
+
+running install_lib
+
+creating /usr/local/lib/python2.7/dist-packages/bson
+
+error: could not create '/usr/local/lib/python2.7/dist-packages/bson': Permission denied
+
+----------------------------------------
+Command /usr/bin/python -c "import setuptools;__file__='/home/lidashu/code/nothing_here/build/pymongo/setup.py';exec(compile(open(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --single-version-externally-managed --record /tmp/pip-ulPGHE-record/install-record.txt failed with error code 1
+Storing complete log in /home/lidashu/.pip/pip.log
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ sudo pip install pymongo
+Downloading/unpacking pymongo
+  Running setup.py egg_info for package pymongo
+    
+Installing collected packages: pymongo
+  Running setup.py install for pymongo
+    building 'bson._cbson' extension
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Ibson -I/usr/include/python2.7 -c bson/_cbsonmodule.c -o build/temp.linux-x86_64-2.7/bson/_cbsonmodule.o
+    bson/_cbsonmodule.c:23:20: 致命错误： Python.h：没有那个文件或目录
+    编译中断。
+    /home/lidashu/code/nothing_here/build/pymongo/setup.py:199: UserWarning:
+    ********************************************************************
+    WARNING: The bson._cbson extension module could not
+    be compiled. No C extensions are essential for PyMongo to run,
+    although they do result in significant speed improvements.
+    The output above this warning shows how the compilation failed.
+    
+    Please see the installation docs for solutions to build issues:
+    
+    http://api.mongodb.org/python/current/installation.html
+    
+    Here are some hints for popular operating systems:
+    
+    If you are seeing this message on Linux you probably need to
+    install GCC and/or the Python development package for your
+    version of Python.
+    
+    Debian and Ubuntu users should issue the following command:
+    
+        $ sudo apt-get install build-essential python-dev
+    
+    RedHat, CentOS, and Fedora users should issue the following command:
+    
+        $ sudo yum install gcc python-devel
+    
+    If you are seeing this message on Microsoft Windows please install
+    PyMongo using the MS Windows installer for your version of Python,
+    available on pypi here:
+    
+    http://pypi.python.org/pypi/pymongo/#downloads
+    
+    If you are seeing this message on OSX please read the documentation
+    here:
+    
+    http://api.mongodb.org/python/current/installation.html#osx
+    ********************************************************************
+    
+      "The output above "
+    command 'gcc' failed with exit status 1
+    building 'pymongo._cmessage' extension
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -Ibson -I/usr/include/python2.7 -c pymongo/_cmessagemodule.c -o build/temp.linux-x86_64-2.7/pymongo/_cmessagemodule.o
+    pymongo/_cmessagemodule.c:23:20: 致命错误： Python.h：没有那个文件或目录
+    编译中断。
+    /home/lidashu/code/nothing_here/build/pymongo/setup.py:199: UserWarning:
+    ********************************************************************
+    WARNING: The pymongo._cmessage extension module could not
+    be compiled. No C extensions are essential for PyMongo to run,
+    although they do result in significant speed improvements.
+    The output above this warning shows how the compilation failed.
+    
+    Please see the installation docs for solutions to build issues:
+    
+    http://api.mongodb.org/python/current/installation.html
+    
+    Here are some hints for popular operating systems:
+    
+    If you are seeing this message on Linux you probably need to
+    install GCC and/or the Python development package for your
+    version of Python.
+    
+    Debian and Ubuntu users should issue the following command:
+    
+        $ sudo apt-get install build-essential python-dev
+    
+    RedHat, CentOS, and Fedora users should issue the following command:
+    
+        $ sudo yum install gcc python-devel
+    
+    If you are seeing this message on Microsoft Windows please install
+    PyMongo using the MS Windows installer for your version of Python,
+    available on pypi here:
+    
+    http://pypi.python.org/pypi/pymongo/#downloads
+    
+    If you are seeing this message on OSX please read the documentation
+    here:
+    
+    http://api.mongodb.org/python/current/installation.html#osx
+    ********************************************************************
+    
+      "The output above "
+    command 'gcc' failed with exit status 1
+    
+Successfully installed pymongo
+Cleaning up...
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ python transdata.py 
+1
+
+
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ mongo
+MongoDB shell version: 2.0.4
+connecting to: test
+> show dbs
+local	(empty)
+train_sample	0.203125GB
+> use transdata.py 
+switched to db transdata.py
+> use train_sample
+switched to db train_sample
+> show collections
+system.indexes
+train_data
+> db.train_data.count()
+4042
+> db.train_data.findOne()
+{
+	"_id" : "\"6030154",
+	"content" : "\"<p>I want to read an XML file and parse it, for that I had used SAX parser which requires file as input to parse. For that I had stored my XML file in Entity called XMLDocs with following property</p>\n\n<p>XMLDocs Entity Name\n  name : Property of string type\n  content : property of blob type (will contain my xml file)</p>\n\n<p>Reason I had to store file like this as I had not yet provide my billing detail to google</p>\n\n<p>Now when I try to open this file in my I am getting error of permission denied..</p>\n\n<p>Please help me, what I have to do...</p>\n\n<p>You can see that error by running my app at</p>\n\n<p>www.parsepython.appspot.com</p>\n",
+	"tags" : "\"python google-app-engine\"",
+	"title" : "\"IOError: [Errno 13] Permission denied when trying to read an file in google app engine"
+}
+> exit
+bye
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ ls -l
+总用量 4864
+-rw-rw-r-- 1 lidashu lidashu      38 10月  1 22:03 README.md
+-rw-rw-r-- 1 lidashu lidashu 4964847 10月  1 22:03 Train_sample.csv
+-rw-rw-r-- 1 lidashu lidashu     958 10月  2 20:24 #transdata.py#
+-rw-rw-r-- 1 lidashu lidashu     956 10月  2 22:51 transdata.py
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ cd ..
+lidashu@lidashu-virtual-machine:~/code$ls -l
+总用量 12
+drwxrwxr-x 3 lidashu lidashu 4096  9月  4 20:43 data
+drwxr-xr-x 8 lidashu lidashu 4096 10月  2 20:17 emacs-for-python
+drwxr-xr-x 3 lidashu lidashu 4096 10月  2 22:51 nothing_here
+lidashu@lidashu-virtual-machine:~/code$ cd data/
+lidashu@lidashu-virtual-machine:~/code/data$ ls -l
+总用量 3115240
+-rw-rw-r-- 1 lidashu lidashu   82546830  9月  4 20:39 SampleSubmission.csv
+-rw-rw-r-- 1 lidashu lidashu  760327055  9月  4 20:38 Test.zip
+drwxrwxr-x 2 lidashu lidashu       4096  9月  8 19:36 Train
+-rw-rw-r-- 1 lidashu lidashu 2347110159  9月  4 20:24 Train.zip
+lidashu@lidashu-virtual-machine:~/code/data$ cd Train
+lidashu@lidashu-virtual-machine:~/code/data/Train$ ls -l
+总用量 7107960
+-rw-rw-r-- 1 lidashu lidashu 7253917400  7月 23 05:50 Train.csv
+-rw-rw-r-- 1 lidashu lidashu    3215631  9月  8 19:37 Train_sample_1.csv
+-rw-rw-r-- 1 lidashu lidashu   21407944  9月  8 19:30 Train_sample.csv
+lidashu@lidashu-virtual-machine:~/code/data/Train$ pwd
+/home/lidashu/code/data/Train
+lidashu@lidashu-virtual-machine:~/code/data/Train$ cd ..
+lidashu@lidashu-virtual-machine:~/code/data$ cd ..
+lidashu@lidashu-virtual-machine:~/code$ cd nothing_here/
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ ls -l
+总用量 4864
+-rw-rw-r-- 1 lidashu lidashu      38 10月  1 22:03 README.md
+-rw-rw-r-- 1 lidashu lidashu 4964847 10月  1 22:03 Train_sample.csv
+-rw-rw-r-- 1 lidashu lidashu     958 10月  2 20:24 #transdata.py#
+-rw-rw-r-- 1 lidashu lidashu     979 10月  2 22:52 transdata.py
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ python transdata.py 
+5
+
+"146513",",""error"":""Not authorized"" when attempting to get tweet from user with hashtag","<p>I am attempting to get all tweets fro a specific user with a hashtag. The url I am using is:</p>
+
+<p><a href=""https://api.twitter.com/1/statuses/user_timeline.json?q=%23jdmr%2Bfrom%3ABarrySpang"" rel=""nofollow"">https://api.twitter.com/1/statuses/user_timeline.json?q=%23jdmr%2Bfrom%3ABarrySpang</a></p>
+
+<p>which without the URL encoding is simply: <a href=""https://api.twitter.com/1/statuses/user_timeline.json?q=#jdmr+from:BarrySpang"" rel=""nofollow"">https://api.twitter.com/1/statuses/user_timeline.json?q=#jdmr+from:BarrySpang</a></p>
+
+<p>When I try it in twitter search (as stated in the API docs) and it displays the desired results, however when I try the above URL I get a 401 response with this error message: {""request"":""/1/statuses/user_timeline.json?q=%23jdmr%2Bfrom%3ABarrySpang"",""error"":""Not authorized""}</p>
+
+<p>Please can you advise me on this</p>
+","api twitter username hashtag"
+5
+
+"706473",",what is the use and benefit of Serialize() function in php","<p>I know its Generates a storable representation of a value and  used to access the objects across the php files but what if i dont use this function while storing the objects.</p>
+","php"
+5
+
+"1669896",",Google results showing sub domain associated with add on domain","<p>My google search results for a domain ""abc.com"" is listed as ""abc.xyz.com"" .
+Where xyz.com is a parent domain on my hosting and abc.com is my add on domain . While adding add on domain, hosting creates a sub domain under the parent . It is usual, but my search results for the website abc.com on google shows this sub domain url s instead of the main domain abc.com </p>
+","url google search subdomain results"
+5
+
+"1733848",",what is the use and benefit of Serialize() function in php","<p>I know its Generates a storable representation of a value and  used to access the objects across the php files but what if i dont use this function while storing the objects.</p>
+","php"
+5
+
+"1922176",", how to open and close screen with effect like Facebook?","<p>I'm using three20 for my dashboard.
+(ttlauncher)</p>
+
+<p>Now when I select a icon to open a screen
+How do I make the screen open like Facebook? (small to big) </p>
+
+<p>And close to  return to the dashboard like Facebook? (big to small) 
+Do I need to modify the ui screens to use three20 aswell? Or the effect is standard iOS effects? </p>
+","iphone xcode facebook iphone-sdk-4.0 three20"
+5
+
+"5085524",",generating nano second delay in c","<p>I am using STm32f2 controller and I have interfaced St7036 LCd display via 8 bit parallel interface.
+The data sheet says there shoul be nano second delay between address hold and setup time.
+Could any pls let me know how to generate a delay for 20nanosecond delay in c.</p>
+
+<p>Thanks</p>
+","stm32 lcd"
+5
+
+"5372206",", throwing an error in $.ajax()","<p>I think I have entirely to many variables, but I cant exactly not have them as they are all vital to the controller that recieves the POST data. </p>
+
+<p>Its breaking around tv: tv, which PHP Eclipse turns the , red, but doesnt tell me what the problem is. Chromes console says its unexpected identifier. Whats going on here?</p>
+
+<p>Ive looked everywhere in these questions and I cant find anything like this.</p>
+
+<p>How can I fix it and still use all these form fields?</p>
+
+<pre><code>$.ajax({
+    type: 'POST',
+    url: $('.pa-details-submit ul li a').attr('href'),
+    data: {
+        make_active_check: make_active_check,
+        details_title: details_title,
+        details_country: details_country,
+        details_desc: details_desc,
+        details_price: details_price,
+        details_zipcode: details_zipcode,
+        details_state: details_state,
+        details_city: details_city,
+        details_add: details_add,
+        details_hidden: details_hidden,
+        featured: featured,
+        bedrooms: bedrooms,
+        baths: baths,
+        beds: beds,
+        floor: floor,
+        sleeps: sleeps,
+        couches: couches,
+        door: door,
+        laundry: laundry,
+        dishwasher: dishwasher,
+        furnished: furnished,
+        elevator: elevator,
+        mon: mon,
+        tue: tue,
+        wed: wed,
+        thu: thu,
+        fri: fri,
+        sat: sat,
+        sun: sun,
+        pets_allowed: pets_allowed,
+        cabletv: cabletv,
+        tv: tv,
+        wireless_net,
+        net: net,
+        handicap: handicap,
+        dvd: dvd,
+        pay_parking: pay_parking,
+        free_parking: free_parking,
+        ac: ac,
+        heat: heat,
+        gym: gym,
+        family_friendly: family_friendly,
+        smoking: smoking,
+        pool: pool,
+        washer: washer,
+        dryer: dryer
+    },
+    success: function(data) {
+        $('.messages').html(data);
+    }
+});
+</code></pre>
+","jquery ajax"
+5
+
+"5734004",", throwing an error in $.ajax()","<p>I think I have entirely to many variables, but I cant exactly not have them as they are all vital to the controller that recieves the POST data. </p>
+
+<p>Its breaking around tv: tv, which PHP Eclipse turns the , red, but doesnt tell me what the problem is. Chromes console says its unexpected identifier. Whats going on here?</p>
+
+<p>Ive looked everywhere in these questions and I cant find anything like this.</p>
+
+<p>How can I fix it and still use all these form fields?</p>
+
+<pre><code>$.ajax({
+    type: 'POST',
+    url: $('.pa-details-submit ul li a').attr('href'),
+    data: {
+        make_active_check: make_active_check,
+        details_title: details_title,
+        details_country: details_country,
+        details_desc: details_desc,
+        details_price: details_price,
+        details_zipcode: details_zipcode,
+        details_state: details_state,
+        details_city: details_city,
+        details_add: details_add,
+        details_hidden: details_hidden,
+        featured: featured,
+        bedrooms: bedrooms,
+        baths: baths,
+        beds: beds,
+        floor: floor,
+        sleeps: sleeps,
+        couches: couches,
+        door: door,
+        laundry: laundry,
+        dishwasher: dishwasher,
+        furnished: furnished,
+        elevator: elevator,
+        mon: mon,
+        tue: tue,
+        wed: wed,
+        thu: thu,
+        fri: fri,
+        sat: sat,
+        sun: sun,
+        pets_allowed: pets_allowed,
+        cabletv: cabletv,
+        tv: tv,
+        wireless_net,
+        net: net,
+        handicap: handicap,
+        dvd: dvd,
+        pay_parking: pay_parking,
+        free_parking: free_parking,
+        ac: ac,
+        heat: heat,
+        gym: gym,
+        family_friendly: family_friendly,
+        smoking: smoking,
+        pool: pool,
+        washer: washer,
+        dryer: dryer
+    },
+    success: function(data) {
+        $('.messages').html(data);
+    }
+});
+</code></pre>
+","jquery ajax"
+1
+
+
+lidashu@lidashu-virtual-machine:~/code/nothing_here$ exit
+exit
+
+Process shell finished
